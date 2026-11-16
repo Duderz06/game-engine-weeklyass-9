@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public class ObjectPoolerFactory : MonoBehaviour
 {
+
+
     public GameObject Obj;
 
     public int AmountToSpawn = 10;
@@ -13,9 +15,13 @@ public class ObjectPooler : MonoBehaviour
 
     public int WhichObj = 0;
 
+    private Spawner S;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        S = FindAnyObjectByType<Spawner>();
+
         StartCoroutine(SpawnAtStart());
     }
 
@@ -34,7 +40,10 @@ public class ObjectPooler : MonoBehaviour
 
         while (Things.Count < AmountToSpawn)
         {
-            GameObject a = Instantiate(Obj, transform.position, transform.rotation);
+            //GameObject a = Instantiate(Obj, transform.position, transform.rotation);
+
+            GameObject a = S.Spawn();
+
 
             Things.Add(a);
             a.SetActive(false);

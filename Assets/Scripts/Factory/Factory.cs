@@ -35,7 +35,7 @@ public class Factory : MonoBehaviour
         {
             return null;
         }
-
+        Debug.Log("factory is factorying");
 
         return Spawn(Prefabs[Index], Position);
     }

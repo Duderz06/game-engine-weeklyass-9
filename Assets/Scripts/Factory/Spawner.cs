@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
 
 
@@ -10,16 +10,17 @@ public class EnemySpawner : MonoBehaviour
 
     public int Num = 0;
 
-    public void Spawn(Transform Parent)
+    public GameObject Spawn()
     {
 
         if (F == null || SpawnPoint == null)
         { 
-            return; 
+            return null; 
         }
 
-        F.Spawn(Num, SpawnPoint.position);
+        GameObject ObjMade = F.Spawn(Num, SpawnPoint.position);
 
+        return ObjMade;
 
     }
 
