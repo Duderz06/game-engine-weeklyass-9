@@ -59,6 +59,8 @@ public class ObjectPooler : MonoBehaviour
                 Things[WhichObj].transform.position = transform.position;
                 Things[WhichObj].transform.rotation = transform.rotation;
 
+                Things[WhichObj].GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+
                 WhichObj++;
                 if (WhichObj >= AmountToSpawn) { 
                 
